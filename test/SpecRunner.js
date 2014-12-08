@@ -1,4 +1,3 @@
-//noinspection Annotator,Annotator
 require.config({
     baseUrl: '../app/scripts',
     urlArgs: 'cb=' + Math.random(),
