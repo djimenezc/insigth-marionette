@@ -1,0 +1,39 @@
+<div class="page-wrapper">
+    <header>
+        <div class="wrapper clearfix">
+            <div class="g960 inside margin-containers">
+                <a href="#" class="confidential">{{i18n "labels.confidential"}}</a>
+
+                <div class="login-details">{{i18n "labels.loggedInAs"}} <strong>{{username}}</strong> | <a
+                        href="{{logoutUrl}}"> {{i18n "menu.signOut"}} </a>
+                </div>
+
+                <img src="{{logoPath}}" alt="starhub logo"/>
+            </div>
+        </div>
+        <div class="clearfix nav">
+            <div class="wrapper">
+                <nav class="g960 margin-containers">
+					{{#if homePermission}}<a id="homeLink" href="#home">{{i18n "menu.home"}}</a>{{/if}}
+					{{#if settingsPermission}}<a id="settingsLink" href="#settings">{{i18n "menu.settings"}}</a>{{/if}}
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="wrapper clearfix">
+        <div id="content" class="margin-containers">
+        </div>
+    </div>
+
+    <div class="push"></div>
+
+</div>
+
+<!--<footer id="footer">-->
+    <!--<div class="wrapper">-->
+        <!--<div class="g960 margin-containers">-->
+            <!--<img src="" alt=" logo"/>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</footer>-->

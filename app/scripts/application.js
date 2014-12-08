@@ -52,6 +52,8 @@ define([
 				}
 			);
 			Insight.App.moduleManager.startGlobalControllers(Insight.App.config);
+			//Indicating the loading mask is visible
+			Insight.App.modal.loadingMaskVisible = true;
 		});
 
 		/**

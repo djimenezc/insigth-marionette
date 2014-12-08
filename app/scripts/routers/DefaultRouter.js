@@ -10,7 +10,7 @@ define([
 			/* Backbone routes hash */
 			routes: {
 				'': 'index',
-				'global' : 'global',
+				'global': 'global',
 				'global/:country': 'advanceSearch',
 				'report/:country/:id': 'reports'
 			},
@@ -53,8 +53,12 @@ define([
 
 			},
 
-			reports: function () {
+			reports: function (countryCode, reportName) {
 				console.log('after route');
+
+				Communicator.mediator.trigger('updateTitle', i18n.translate('pages.global' + reportName + '.title'));
+
+				Communicator.reqres.request('getController', 'ReportController').buildPage(countryCode, reportName);
 			}
 		});
 	});

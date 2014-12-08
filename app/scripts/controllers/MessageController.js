@@ -24,6 +24,7 @@ define([
 	function (Backbone, App, Communicator, i18n, ErrorMessageView, LoadingMessageView, validationMessageTmpl) {
 		'use strict';
 
+		//noinspection JSValidateJSDoc
 		return Backbone.Marionette.Controller.extend({
 
 			/**
@@ -31,7 +32,6 @@ define([
 			 */
 			initialize: function (App) {
 				console.log('initialize a MessageController');
-
 
 				/**
 				 * function for displaying an error message using the AJAX jqXHR parameter
@@ -97,10 +97,12 @@ define([
 				// set global AJAX error handler
 				$(document).ajaxError(App.ajaxErrorHandler);
 
-				Communicator.mediator.on('message:showLoadingMask', this.showLoadingMask);
-				Communicator.mediator.on('message:hideLoadingMask', this.hideLoadingMask);
-				Communicator.mediator.on('message:showError', $.proxy(this.errorMessage, this));
-				Communicator.mediator.on('message:hideError', this.hideErrorMessage);
+				this.App = App;
+
+				Communicator.mediator.on('message:showLoadingMask', this.showLoadingMask, this);
+				Communicator.mediator.on('message:hideLoadingMask', this.hideLoadingMask, this);
+				Communicator.mediator.on('message:showError', this.errorMessage, this);
+				Communicator.mediator.on('message:hideError', this.hideErrorMessage, this);
 			},
 
 			/**
@@ -139,8 +141,8 @@ define([
 					cancelCallbackFn: cancelCallbackFn,
 					cancelCallbackScope: cancelCallbackScope
 				});
-				App.modal.showModal(view);
-				App.modal.loadingMaskVisible = false;
+				this.App.modal.showModal(view);
+				this.App.modal.loadingMaskVisible = false;
 				this.getPrimaryBtn().focus();
 			},
 
@@ -167,8 +169,8 @@ define([
 						msg: message
 					}
 				});
-				App.modal.showModal(view);
-				App.modal.loadingMaskVisible = true;
+				this.App.modal.showModal(view);
+				this.App.modal.loadingMaskVisible = true;
 			},
 
 			/**
@@ -178,9 +180,9 @@ define([
 			hideLoadingMask: function () {
 				console.log('Hiding loading mask');
 
-				if(App.modal.loadingMaskVisible) {
-					App.modal.hideModal();
-					App.modal.loadingMaskVisible = false;
+				if(this.App.modal.loadingMaskVisible) {
+					this.App.modal.hideModal();
+					this.App.modal.loadingMaskVisible = false;
 				}
 			}
 		});

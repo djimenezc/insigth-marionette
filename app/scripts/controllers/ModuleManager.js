@@ -36,10 +36,8 @@ define([
 
 				this.App.Controllers = _.extend(globalControllers, opts.appControllers);
 
-				this.modules= {};
-
 				Communicator.reqres.setHandler('getController', this.getController, this);
-				Communicator.mediator.on('module:stop', this.stopModule, this);
+				Communicator.mediator.on('module:replaceMainLayout', this.replaceMainLayout, this);
 			},
 
 			/**
@@ -67,22 +65,15 @@ define([
 
 				var controllers = [];
 
-				controllers.push(this.getController('MessageController'));
+				controllers.push(this.getController('MessageController', this.App));
 				controllers.push(this.getController('ConfigController', config));
 
 				return controllers;
 			},
 
-			/**
-			 * Method to stop and destroy all the content in the main page
-			 */
-			stopModule: function (moduleId) {
+			replaceMainLayout: function (layout) {
 
-				console.log('Stopping '+ moduleId+' Module');
-
-				if (this.modules[moduleId]) {
-					this.modules[moduleId].stop();
-				}
+				Insight.App.main.show(layout);
 			}
 
 		});
