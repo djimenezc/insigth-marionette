@@ -1,0 +1,16 @@
+{{#if this.responseText}}
+    <b>{{i18n "messages.responseText"}}</b>: {{this.responseText}}
+    <br>
+{{/if}}
+{{#if this.errorCode}}
+    <b>{{i18n "messages.errorCode"}}</b>: {{this.errorCode}}
+    <br>
+{{/if}}
+{{#if this.errorText}}
+    <b>{{i18n "messages.errorText"}}</b>: {{this.errorText}}
+    <br>
+{{/if}}
+{{#each validationErrorMessages}}
+<b>{{this.sourceObject.name}}</b>: {{this.validationMessage}}
+<br>
+{{/each}}

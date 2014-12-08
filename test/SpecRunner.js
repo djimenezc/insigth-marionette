@@ -3,7 +3,29 @@ require.config({
     baseUrl: '../app/scripts',
     //urlArgs: 'cb=' + Math.random(),
 
-    deps: ['backbone.marionette'],
+    deps: ['backbone', 'backbone.marionette', 'backbone.routefilter', 'marionette.region.extension'],
+
+	shim: {
+		'backbone.routefilter': {
+			deps: [
+				'backbone',
+				'backbone.extension'
+			],
+			exports: 'routefilter'
+		},
+		'marionette.region.extension': {
+			deps: [
+				'backbone',
+				'backbone.marionette'
+			],
+			exports: 'marionette.region.extension'
+		},
+
+		bootstrap: {
+			deps: ['jquery'],
+			exports: 'bootstrap'
+		}
+	},
 
     paths: {
         spec: '../../test/spec', // lives in the test directory
@@ -20,14 +42,19 @@ require.config({
         'backbone.marionette': '../bower_components/backbone.marionette/lib/core/amd/backbone.marionette',
         'backbone.wreqr': '../bower_components/backbone.wreqr/lib/amd/backbone.wreqr',
         'backbone.babysitter': '../bower_components/backbone.babysitter/lib/amd/backbone.babysitter',
+		'backbone.routefilter': 'vendor/backbone.routefilter',
+		'backbone.extension': 'vendor/backbone.extension',
+		'marionette.region.extension': 'vendor/marionette.region.extension',
 
         /* alias the bootstrap js lib */
         bootstrap: 'vendor/bootstrap',
-        'bootstrap-button': 'vendor/bootstrap-button',
+
+		/* alias configuration*/
+		'config': 'config/app.config',
 
         /* Alias text.js for template loading and shortcut the templates dir to tmpl */
         text: '../bower_components/requirejs-text/text',
-        tmpl: "../templates",
+        tmpl: '../templates',
 
         /* handlebars from the require handlerbars plugin below */
         handlebars: '../bower_components/require-handlebars-plugin/Handlebars',

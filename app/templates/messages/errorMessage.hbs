@@ -1,0 +1,24 @@
+<div id="modalwin" class="modal" style="display:block; " role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog" id="modal-error-message">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">{{title}}</h4>
+            </div>
+            <div class="modal-body">
+                {{!-- msg is rendered without html escaping in order to allow to put custom html snippets --}}
+                <p>{{{msg}}}</p>
+            </div>
+            <div class="modal-footer">
+                {{#if showCancel }}
+                    <button class="btn">{{i18n "buttons.cancel"}}</button>
+                {{/if}}
+                {{#if showOk }}
+                    <button class="btn-primary">{{i18n "buttons.ok"}}</button>
+                {{/if}}
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div><!-- /.modal -->

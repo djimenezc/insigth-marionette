@@ -1,30 +1,69 @@
 define([
 		'backbone',
 		'communicator',
-		'hbs!tmpl/welcome'
+		'regions/Modal',
+		'routers/DefaultRouter',
+		'controllers/ModuleManager',
+		'controllers/ReportController',
+		'controllers/ScorecardController',
+		'config'
 	],
 
-	function (Backbone, Communicator, WelcomeTmpl) {
+	function (Backbone, Communicator, ModalRegion, MainRouter, ModuleManager, ReportController, ScorecardController, config) {
 		'use strict';
-
-		var welcomeTmpl = WelcomeTmpl;
 
 		var Insight = Insight || {};
 
 		Insight.App = new Backbone.Marionette.Application();
 
 		/* Add application regions here */
-		Insight.App.addRegions({});
+		Insight.App.addRegions({
+			main: '#main',
+			modal: ModalRegion
+		});
 
 		/* Add initializers here */
 		Insight.App.addInitializer(function () {
-			document.body.innerHTML = welcomeTmpl({success: 'CONGRATS!'});
+
+			console.log('Before app start');
+
 			Communicator.mediator.trigger('APP:START');
 
 			Insight.App.Communicator = Communicator;
+			Insight.App.config = config;
+
+			Insight.App.routers = [];
+			Insight.App.routers.main = new MainRouter();
+
+			Communicator.mediator.trigger('APP:START');
+
+			Insight.App.moduleManager = new ModuleManager({
+					App: Insight.App,
+					appControllers: {
+						'ReportController': {
+							ControllerClass: ReportController
+						},
+						'ScorecardController': {
+							ControllerClass: ScorecardController
+						}
+					}
+				}
+			);
+			Insight.App.moduleManager.startGlobalControllers(Insight.App.config);
 		});
 
-		console.log('Display welcome message');
+		/**
+		 * Function execute after the application is started. It is carried out to:
+		 *  - start the history
+		 *  - check that everything is in place, if not a error message is displayed
+		 */
+		Insight.App.on('initialize:after', function () {
+			//Enable router navigation only if app has started correctly with configuration from backend
+			if (Backbone.history) {
+				console.log('Initialize history');
+				Backbone.history.start();
+			}
+		});
 
 		return Insight.App;
 	});
