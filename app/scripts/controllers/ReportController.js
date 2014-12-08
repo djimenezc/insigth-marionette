@@ -2,15 +2,24 @@ define([
 		'backbone',
 		'communicator',
 		'views/layout/ReportLayout',
-		'views/reports/ReportHeaderView'
+		'views/reports/ReportHeaderView',
+		'components/controls/navigationMenu/NavigationMenuCmp',
 	],
-	function (Backbone, Communicator, AppLayout, ReportHeaderView) {
+	function (Backbone, Communicator, AppLayout, ReportHeaderView, NavigationMenuCmp) {
 		'use strict';
 
 		return Backbone.Marionette.Controller.extend({
 
 			initialize: function () {
 				console.log('initialize a Report controller Controller');
+
+				if (!this.navigationMenuCmp) {
+					this.navigationMenuCmp = new NavigationMenuCmp({
+						get : function() {
+							return 'US';
+						}
+					}, [], []);
+				}
 			},
 
 			buildPage: function () {
@@ -24,7 +33,7 @@ define([
 				Communicator.command.execute('module:replaceMainLayout', layout);
 
 				this.attachHeaderView(layout);
-				this.attachSidebarView();
+				this.attachSidebarView(layout);
 				this.attachContentView();
 
 				Communicator.mediator.trigger('message:hideLoadingMask');
@@ -35,8 +44,10 @@ define([
 				layout.header.show(new ReportHeaderView());
 			},
 
-			attachSidebarView : function() {
+			attachSidebarView : function(layout) {
 
+				var navigationMenu = this.navigationMenuCmp.buildComponent('');
+				layout.sidebar.show(navigationMenu);
 			},
 
 			attachContentView : function() {

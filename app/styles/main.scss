@@ -4,7 +4,7 @@
 // Be aware that bootstrap calls in a lot of partial files - make sure that our partial names do not overlap
 @import "vars";
 @import "lightTheme/vars";
-
+@import "headerReport";
 
 .hero-unit {
     margin: 50px auto 0 auto;

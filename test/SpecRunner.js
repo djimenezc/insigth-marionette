@@ -3,7 +3,16 @@ require.config({
     baseUrl: '../app/scripts',
     //urlArgs: 'cb=' + Math.random(),
 
-    deps: ['backbone', 'backbone.marionette', 'backbone.routefilter', 'marionette.region.extension'],
+    deps: ['backbone',
+		'backbone.marionette',
+		'backbone.routefilter',
+		'marionette.region.extension',
+		'template/helpers/recursivepartial',
+		'template/helpers/templateHelpers',
+		'template/helpers/i18n',
+		'template/helpers/parseJSON',
+		'template/helpers/times'
+	],
 
 	shim: {
 		'backbone.routefilter': {
@@ -24,6 +33,13 @@ require.config({
 		bootstrap: {
 			deps: ['jquery'],
 			exports: 'bootstrap'
+		}
+	},
+
+	map: {
+		'*': {
+			underscore: 'lodash', // alias lodash as underscore
+			'hbs/handlebars': 'handlebars'
 		}
 	},
 
@@ -48,6 +64,8 @@ require.config({
 
         /* alias the bootstrap js lib */
         bootstrap: 'vendor/bootstrap',
+		lodash: '../bower_components/lodash/dist/lodash',
+		moment: '../bower_components/moment/moment',
 
 		/* alias configuration*/
 		'config': 'config/app.config',
@@ -57,13 +75,13 @@ require.config({
         text: '../bower_components/requirejs-text/text',
         tmpl: '../templates',
 
-        /* handlebars from the require handlerbars plugin below */
-        handlebars: '../bower_components/require-handlebars-plugin/Handlebars',
+		/* handlebars from the require handlebars plugin below */
+		handlebars: '../bower_components/hbs/hbs/handlebars',
 
-        /* require handlebars plugin - Alex Sexton */
-        i18nprecompile: '../bower_components/require-handlebars-plugin/hbs/i18nprecompile',
-        json2: '../bower_components/require-handlebars-plugin/hbs/json2',
-        hbs: '../bower_components/require-handlebars-plugin/hbs'
+		/* require handlebars plugin - Alex Sexton */
+		i18nprecompile: '../bower_components/hbs/hbs/i18nprecompile',
+		json2: '../bower_components/hbs/hbs/json2',
+		hbs: '../bower_components/hbs/hbs'
     },
 
     hbs: {

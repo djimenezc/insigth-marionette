@@ -58,11 +58,19 @@ require.config({
 				'template/helpers/i18n',
 				'template/helpers/parseJSON',
 				'template/helpers/times',
+				'template/helpers/recursivepartial',
 				'views/layout/VerticalLayout',
 				'views/layout/HorizontalLayout'
 			]
 		}
     },
+
+	map: {
+		'*': {
+			underscore: 'lodash', // alias lodash as underscore
+			'hbs/handlebars': 'handlebars'
+		}
+	},
 
     paths: {
         jquery: '../bower_components/jquery/jquery',
@@ -80,6 +88,9 @@ require.config({
         /* alias the bootstrap js lib */
         bootstrap: 'vendor/bootstrap',
 
+		moment: '../bower_components/moment/moment',
+		lodash: '../bower_components/lodash/dist/lodash',
+
 		/* alias configuration*/
 		'config': 'config/app.config',
 		'labels': 'locale/locale_en',
@@ -88,13 +99,13 @@ require.config({
         text: '../bower_components/requirejs-text/text',
         tmpl: '../templates',
 
-        /* handlebars from the require handlebars plugin below */
-        handlebars: '../bower_components/require-handlebars-plugin/Handlebars',
+		/* handlebars from the require handlebars plugin below */
+		handlebars: '../bower_components/hbs/hbs/handlebars',
 
         /* require handlebars plugin - Alex Sexton */
-        i18nprecompile: '../bower_components/require-handlebars-plugin/hbs/i18nprecompile',
-        json2: '../bower_components/require-handlebars-plugin/hbs/json2',
-        hbs: '../bower_components/require-handlebars-plugin/hbs'
+        i18nprecompile: '../bower_components/hbs/hbs/i18nprecompile',
+        json2: '../bower_components/hbs/hbs/json2',
+        hbs: '../bower_components/hbs/hbs'
     },
 
     hbs: {

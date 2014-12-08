@@ -2,7 +2,7 @@ define([
         'backbone',
         'components/controls/navigationMenu/NavigationMenuView',
         'components/controls/navigationMenu/NavigationMenuCollection',
-        'utilities/ClavisUtils'
+        'helpers/ClavisUtils'
     ],
     /**
      * Class that builds and manage the lifecycle of the navigation menu component
