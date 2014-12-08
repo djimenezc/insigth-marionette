@@ -5,7 +5,9 @@ define(function () {
 	return {
 		specs: [
 			'spec/exampleTest.js',
-			'spec/routers/DefaultRouter.js'
+			'spec/routers/DefaultRouter.js',
+			'spec/views/layout/HorizontalLayout.js',
+			'spec/views/layout/VerticalLayout.js'
 		]
 	};
 });

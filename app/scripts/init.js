@@ -6,6 +6,34 @@ require.config({
     deps: ['backbone.marionette', 'bootstrap', 'main'],
 
     shim: {
+
+		'backbone.routefilter': {
+			deps: [
+				'backbone',
+				'backbone.marionette',
+				'backbone.extension'
+			],
+			exports: 'routefilter'
+		},
+		'backbone.extension': {
+			deps: [
+				'backbone'
+			]
+		},
+		'marionette.region.extension': {
+			deps: [
+				'backbone',
+				'backbone.marionette'
+			],
+			exports: 'marionette.region.extension'
+		},
+		'marionette': {
+			deps: [
+				'backbone',
+				'jquery'
+			],
+			exports: 'backbone.marionette'
+		},
         backbone: {
             deps: [
                 'underscore',
@@ -16,7 +44,33 @@ require.config({
         bootstrap: {
             deps: ['jquery'],
             exports: 'jquery'
-        }
+        },
+		'main': {
+			deps: [
+				'backbone',
+				'backbone.marionette',
+				'backbone.routefilter',
+				'backbone.extension',
+				'marionette.region.extension',
+				'bootstrap',
+				//'jqueryui',
+				//'jqueryui.widget',
+				//'jqueryui.tabs',
+				//'jqueryui.dialog',
+				//'jquery-outside-events',
+				//'jquery.blockUI',
+				//'spin',
+				//'antiscroll',
+				//'jquery.mousewheel',
+				'config',
+				'template/helpers/templateHelpers',
+				'template/helpers/i18n',
+				'template/helpers/parseJSON',
+				'template/helpers/times',
+				'views/layout/VerticalLayout',
+				'views/layout/HorizontalLayout'
+			]
+		}
     },
 
     paths: {
@@ -28,9 +82,15 @@ require.config({
         'backbone.marionette': '../bower_components/backbone.marionette/lib/core/amd/backbone.marionette',
         'backbone.wreqr': '../bower_components/backbone.wreqr/lib/amd/backbone.wreqr',
         'backbone.babysitter': '../bower_components/backbone.babysitter/lib/amd/backbone.babysitter',
+		'backbone.routefilter': 'vendor/backbone.routefilter',
+		'backbone.extension': 'vendor/backbone.extension',
+		'marionette.region.extension': 'vendor/marionette.region.extension',
 
         /* alias the bootstrap js lib */
         bootstrap: 'vendor/bootstrap',
+
+		/* alias configuration*/
+		'config': 'config/app.config',
 
         /* Alias text.js for template loading and shortcut the templates dir to tmpl */
         text: '../bower_components/requirejs-text/text',
