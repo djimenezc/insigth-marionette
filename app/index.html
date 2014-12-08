@@ -14,9 +14,9 @@
         <meta name="viewport" content="width=device-width">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        
+
         <link rel="stylesheet" href="styles/main.css">
-        
+
 
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
@@ -30,9 +30,28 @@
         <script data-main="scripts/init" src="bower_components/requirejs/require.js"></script>
         <!-- endbuild -->
 
+		<div id="main" role="main"></div>
+		<div class="modal" id="modal" style="display:block; " data-backdrop="static"
+			 data-keyboard="false">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1>Processing...</h1>
+					</div>
+					<div class="modal-body">
+						<div class="progress progress-striped active">
+							<div class="progress-bar" style="width: 100%;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- @if NODE_ENV !== 'production' -->
         <script>document.write('<script src="http://'
             + (location.host || 'localhost').split(':')[0]
             + ':35729/livereload.js?snipver=1"><\/script>');
         </script>
+		<!-- @endif -->
     </body>
 </html>

@@ -1,7 +1,7 @@
 {
   "name": "insight-marionette",
   "version": "0.0.1",
-  
+
   "dependencies": {
     "express": "~3.2.4",
     "request": "~2.21.0",
@@ -9,7 +9,7 @@
     "express-hbs": "~0.2.0",
     "underscore": "~1.4.4"
   },
-  
+
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-copy": "~0.4.0",
@@ -18,7 +18,7 @@
     "grunt-contrib-handlebars": "~0.5.8",
     "grunt-contrib-uglify": "~0.2.0",
     "grunt-contrib-compass": "~0.2.0",
-    "grunt-contrib-jshint": "~0.4.3",
+    "grunt-contrib-jshint": "~0.10.0",
     "grunt-contrib-cssmin": "~0.6.0",
     "grunt-contrib-connect": "0.3.0",
     "grunt-contrib-clean": "0.4.0",
