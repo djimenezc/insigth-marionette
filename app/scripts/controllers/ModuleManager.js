@@ -37,7 +37,7 @@ define([
 				this.App.Controllers = _.extend(globalControllers, opts.appControllers);
 
 				Communicator.reqres.setHandler('getController', this.getController, this);
-				Communicator.mediator.on('module:replaceMainLayout', this.replaceMainLayout, this);
+				Communicator.command.setHandler('module:replaceMainLayout', this.replaceMainLayout, this);
 			},
 
 			/**
@@ -72,6 +72,8 @@ define([
 			},
 
 			replaceMainLayout: function (layout) {
+
+				console.log('Replacing application main layout');
 
 				Insight.App.main.show(layout);
 			}

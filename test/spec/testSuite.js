@@ -10,6 +10,7 @@ define(function() {
 		'spec/controllers/ScoreCardController.js',
 		'spec/exampleTest.js',
 		'spec/routers/DefaultRouter.js',
+		'spec/views/reports/ReportHeaderView.js',
 		'spec/views/layout/HorizontalLayout.js',
 		'spec/views/layout/VerticalLayout.js'
 		]

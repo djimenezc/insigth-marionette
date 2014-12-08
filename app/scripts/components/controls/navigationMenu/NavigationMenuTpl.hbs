@@ -1,0 +1,13 @@
+<div class="nav-scroll-content">
+    <ul class='nav nav-pills nav-stacked' id='menu_accordion'>
+        {{#each this}}
+            {{ recursivepartial 'menuEntry' this}}
+        {{/each}}
+    </ul>
+</div>
+<div class='clavis_info'>
+    &copy; Clavis Insight 2014
+    <div class='label label-primary'>v2.4.905</div>
+</div>
+
+

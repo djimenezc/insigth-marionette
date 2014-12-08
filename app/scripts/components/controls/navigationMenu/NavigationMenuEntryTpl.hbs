@@ -1,0 +1,31 @@
+{{!
+{
+  "name" : "menuEntry",
+  "decription" : "Menu entry Partial"
+}
+}}
+
+<li>
+    <a {{#if accordion}}data-parent='#accordion' data-toggle='collapse'{{/if}} href='{{href}}' id='{{id}}' class="{{class}}" data-item-id="{{id}}" target="{{target}}">
+        {{#if displayIconImg}}
+            <img alt="US" src="{{iconImg}}">
+        {{else}}
+            <span class='glyphicon {{icon}}'></span>
+        {{/if}}
+        {{i18n label}}
+        {{#if accordion}}
+            <div class='pull-right' data-item-id="{{id}}">
+                <span class='glyphicon {{arrowClass}} submenu_item' data-item-id="{{id}}"></span>
+            </div>
+        {{/if}}
+    </a>
+    {{#if accordion}}
+        <div class='submenu panel-collapse collapse' id='{{accordionId}}'>
+            <ul>
+                {{#each subItems}}
+                    {{ recursivepartial 'menuEntry' this}}
+                {{/each}}
+            </ul>
+        </div>
+    {{/if}}
+</li>

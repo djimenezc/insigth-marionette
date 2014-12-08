@@ -44,8 +44,8 @@ module.exports = function (grunt) {
 					'{.tmp,<%= yeoman.app %>}/scripts/{,**/}*.js',
 					'{.tmp,<%= yeoman.app %>}/templates/{,**/}*.hbs',
 					'<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
-
 					'test/spec/{,**/}*.js'
+
 				],
 				tasks: ['jshint', 'exec'],
 				options: {
