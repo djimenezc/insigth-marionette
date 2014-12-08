@@ -40,6 +40,8 @@
         "moment": false,
         "OpenLayers": false,
         "google": false,
-        "Slick" : false
+        "Slick" : false,
+		"Marionette" : false,
+		"Backbone" : false
     }
 }

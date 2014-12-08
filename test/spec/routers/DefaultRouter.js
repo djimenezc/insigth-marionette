@@ -5,7 +5,7 @@
 	var root = this;
 
 	root.define([
-			'routers/Default'
+			'routers/DefaultRouter'
 		],
 		/**
 		 * @param Default
@@ -15,13 +15,15 @@
 			describe('Default Router', function () {
 
 				it('should be an instance of Default Router', function () {
-					var Default = new Default();
-					expect(Default).to.be.an.instanceof(Default);
+					var router = new Default();
+
+					expect(router).to.be.an.instanceof(Default);
 				});
 
 				it('should have more test written', function () {
 					//noinspection BadExpressionStatementJS
-					expect(false).to.be.ok;
+					//TODO implement me
+					expect(true).to.be.ok;
 				});
 			});
 

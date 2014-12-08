@@ -1,6 +1,7 @@
+//noinspection Annotator
 require.config({
     baseUrl: '../app/scripts',
-    urlArgs: 'cb=' + Math.random(),
+    //urlArgs: 'cb=' + Math.random(),
 
     deps: ['backbone.marionette'],
 
