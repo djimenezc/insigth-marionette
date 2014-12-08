@@ -1,8 +1,7 @@
 /**
- * Created by massigob on 26/03/14.
+ * Created by djimenezc on 26/03/14.
  */
 define([
-        'backbone'
     ],
     function () {
         'use strict';
@@ -17,7 +16,7 @@ define([
              * @param translation {String} String to be translated. In format 'xxxx.xxxx.xxxx'. We loop through the nodes and return if found.
              * @param data (Array) String formatting parameters
              * @param defaultLabel {String} default label to return in case the translation cannot be performed
-             * @returns {Insight.env.labels|*} {String} Translated string or default label missing message
+             * @returns {Insight.labels|*} {String} Translated string or default label missing message
              */
             translate: function (translation, data, defaultLabel) {
 

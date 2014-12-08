@@ -6,13 +6,14 @@ define([
 		'controllers/ModuleManager',
 		'controllers/ReportController',
 		'controllers/ScorecardController',
-		'config'
+		'config',
+		'labels'
 	],
 
-	function (Backbone, Communicator, ModalRegion, MainRouter, ModuleManager, ReportController, ScorecardController, config) {
+	function (Backbone, Communicator, ModalRegion, MainRouter, ModuleManager, ReportController, ScorecardController, config, labels) {
 		'use strict';
 
-		var Insight = Insight || {};
+		window.Insight = Insight || {};
 
 		Insight.App = new Backbone.Marionette.Application();
 
@@ -31,6 +32,7 @@ define([
 
 			Insight.App.Communicator = Communicator;
 			Insight.App.config = config;
+			Insight.labels = labels;
 
 			Insight.App.routers = [];
 			Insight.App.routers.main = new MainRouter();

@@ -1,5 +1,5 @@
 /**
- * @author massigob
+ * @author djimenezc
  */
 define([
         'backbone',

@@ -1,5 +1,5 @@
 /**
- * Created by massigob on 22/05/2014.
+ * Created by djimenezc on 22/05/2014.
  */
 define([
 		'backbone',
