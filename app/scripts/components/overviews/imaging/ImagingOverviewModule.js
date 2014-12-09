@@ -7,14 +7,15 @@ define([
 		'communicator',
 		'views/layout/VerticalLayout',
 		'components/controls/reportFilter/ReportFilterView',
-		'components/controls/reportHeaderTitle/ReportHeaderTitleView'
+		'components/controls/reportHeaderTitle/ReportHeaderTitleView',
+		'components/controls/panels/SimplePanelView'
 	],
 	/**
 	 *
 	 * Please, don't reference global variable inside modules.
 	 * @returns {*|module}
 	 */
-	function (App, Communicator, VerticalLayout, ReportFilterView, ReportHeaderTitle) {
+	function (App, Communicator, VerticalLayout, ReportFilterView, ReportHeaderTitle, SimplePanelView) {
 		'use strict';
 
 		console.log('Imaging Overview Module: init');
@@ -74,7 +75,7 @@ define([
 				//noinspection JSUnresolvedVariable
 				this.mainLayout.reportFilter.show(new ReportFilterView());
 				//noinspection JSUnresolvedVariable
-				//this.mainLayout.tabPanelComparison.show(new ReportHeaderTitle());
+				this.mainLayout.tabPanelComparison.show(new SimplePanelView());
 
 				return this.mainLayout;
 			};

@@ -1,8 +1,8 @@
 define([
 	'backbone',
-	'hbs!components/controls/reportFilter/ReportFilterView_tmpl'
+	'hbs!components/controls/panels/SimplePanel_tmpl'
 ],
-function( Backbone, ReportFilterViewTmpl  ) {
+function( Backbone, SimplePanelViewTmpl  ) {
     'use strict';
 
 	/* Return a ItemView class definition */
@@ -13,9 +13,9 @@ function( Backbone, ReportFilterViewTmpl  ) {
 			console.log('initialize a Simple Panel ItemView');
 		},
 
-		className: 'width-100-percent',
+		className: 'width-100-percent panels-lateral-padding',
 
-    	template: ReportFilterViewTmpl,
+    	template: SimplePanelViewTmpl,
 
     	/* ui selector cache */
     	ui: {},

@@ -12,7 +12,7 @@ define([
 				console.log('initialize a Report filter  ItemView');
 			},
 
-			className: 'width-100-percent pull-left',
+			className: 'width-100-percent',
 
 			template: ReportFilterViewTmpl,
 

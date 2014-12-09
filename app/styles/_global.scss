@@ -4,9 +4,12 @@
 
 .vertical-layout {
 	width: 100%;
+	&> div{
+		margin-top: 15px
+	}
 }
 
-.vertical-layout {
+.horizontal-layout {
 	display: inline-block;
 	width: 100%;
 }
