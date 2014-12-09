@@ -7,7 +7,7 @@ define([
         /* Return a Layout class definition */
         return BaseDynamicLayout.extend({
 
-			className: 'verticalLayout'
+			className: 'vertical-layout'
         });
 
     });

@@ -63,7 +63,7 @@ define([
 			};
 
 			/**
-			 * Render subpanels
+			 * Render subPanels
 			 */
 			Module.displaySubPanels = function () {
 
@@ -71,6 +71,10 @@ define([
 
 				//noinspection JSUnresolvedVariable
 				this.mainLayout.reportHeaderTitle.show(new ReportHeaderTitle());
+				//noinspection JSUnresolvedVariable
+				this.mainLayout.reportFilter.show(new ReportFilterView());
+				//noinspection JSUnresolvedVariable
+				//this.mainLayout.tabPanelComparison.show(new ReportHeaderTitle());
 
 				return this.mainLayout;
 			};

@@ -13,6 +13,8 @@ function( Backbone, ReportFilterViewTmpl  ) {
 			console.log('initialize a Report filter  ItemView');
 		},
 
+		className: 'width-100-percent',
+
     	template: ReportFilterViewTmpl,
 
     	/* ui selector cache */

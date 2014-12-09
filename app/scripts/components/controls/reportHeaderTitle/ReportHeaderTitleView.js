@@ -1,27 +1,30 @@
 define([
-	'backbone',
-	'hbs!components/controls/reportHeaderTitle/ReportHeaderTitleView_tmpl'
-],
-function( Backbone, ReportFilterViewTmpl  ) {
-    'use strict';
+		'backbone',
+		'hbs!components/controls/reportHeaderTitle/ReportHeaderTitleView_tmpl'
+	],
+	function (Backbone, ReportFilterViewTmpl) {
+		'use strict';
 
-	/* Return a ItemView class definition */
-	return Backbone.Marionette.ItemView.extend({
+		/* Return a ItemView class definition */
+		return Backbone.Marionette.ItemView.extend({
 
-		initialize: function() {
-			console.log('initialize a Report filter  ItemView');
-		},
+			initialize: function () {
+				console.log('initialize a Report filter  ItemView');
+			},
 
-    	template: ReportFilterViewTmpl,
+			className: 'width-100-percent pull-left',
 
-    	/* ui selector cache */
-    	ui: {},
+			template: ReportFilterViewTmpl,
 
-		/* Ui events hash */
-		events: {},
+			/* ui selector cache */
+			ui: {},
 
-		/* on render callback */
-		onRender: function() {}
+			/* Ui events hash */
+			events: {},
+
+			/* on render callback */
+			onRender: function () {
+			}
+		});
+
 	});
-
-});
