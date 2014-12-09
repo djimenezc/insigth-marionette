@@ -5,11 +5,11 @@
 	var root = this;
 
 	root.define([
-			'views/item/ReportFilterView'
+			'components/controls/reportFilter/ReportFilterView'
 		],
 		function (Reportfilterview) {
 
-			describe('Reportfilterview Itemview', function () {
+			describe('Report Filter View ItemView', function () {
 
 				it('should be an instance of Reportfilterview Itemview', function () {
 					var ReportFilterView = new Reportfilterview();
