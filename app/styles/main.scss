@@ -1,9 +1,10 @@
-@import 'sass-bootstrap/lib/bootstrap';
+@import '../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap';
 
 // Import partials
 // Be aware that bootstrap calls in a lot of partial files - make sure that our partial names do not overlap
 @import "vars";
 @import "lightTheme/vars";
+@import "global";
 @import "headerReport";
 @import "navigationMenu";
 

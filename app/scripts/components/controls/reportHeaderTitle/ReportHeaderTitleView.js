@@ -1,12 +1,11 @@
 define([
 	'backbone',
-	'hbs!components/controls/reportFilter/ReportFilterView_tmpl'
+	'hbs!components/controls/reportHeaderTitle/ReportHeaderTitleView_tmpl'
 ],
 function( Backbone, ReportFilterViewTmpl  ) {
     'use strict';
 
 	/* Return a ItemView class definition */
-	/** @namespace Backbone.Marionette.ItemView */
 	return Backbone.Marionette.ItemView.extend({
 
 		initialize: function() {

@@ -6,14 +6,15 @@ define([
 		'application',
 		'communicator',
 		'views/layout/VerticalLayout',
-		'components/controls/reportFilter/ReportFilterView'
+		'components/controls/reportFilter/ReportFilterView',
+		'components/controls/reportHeaderTitle/ReportHeaderTitleView'
 	],
 	/**
 	 *
 	 * Please, don't reference global variable inside modules.
 	 * @returns {*|module}
 	 */
-	function (App, Communicator, VerticalLayout, ReportFilterView) {
+	function (App, Communicator, VerticalLayout, ReportFilterView, ReportHeaderTitle) {
 		'use strict';
 
 		console.log('Imaging Overview Module: init');
@@ -49,10 +50,29 @@ define([
 
 				console.log('buildPanel: Overview Imaging');
 
-				var mainLayout = new VerticalLayout();
+				this.mainLayout = new VerticalLayout({
+					regions: [
+						'reportHeaderTitle',
+						'reportFilter',
+						'tabPanelComparison',
+						'panelComparisonByOvertime'
+					]
+				});
 
+				return this.mainLayout;
+			};
 
-				return mainLayout;
+			/**
+			 * Render subpanels
+			 */
+			Module.displaySubPanels = function () {
+
+				console.log('displaySubPanels: Overview Imaging');
+
+				//noinspection JSUnresolvedVariable
+				this.mainLayout.reportHeaderTitle.show(new ReportHeaderTitle());
+
+				return this.mainLayout;
 			};
 
 		});

@@ -59,6 +59,8 @@ define([
 					imagingOverviewModule.start();
 
 					layout.content.show(imagingOverviewModule.buildPanel());
+
+					imagingOverviewModule.displaySubPanels();
 				});
 			}
 		});

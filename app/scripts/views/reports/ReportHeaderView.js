@@ -5,6 +5,7 @@ define([
 	function (Backbone, Tmpl) {
 		'use strict';
 
+		/** @namespace Backbone.View */
 		return Backbone.View.extend({
 			initialize: function () {
 				console.log('initialize a Report header View');

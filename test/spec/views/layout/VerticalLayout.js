@@ -7,13 +7,13 @@
     root.define([
             'views/layout/VerticalLayout'
         ],
-        function (Verticallayout) {
+        function (VerticalLayout) {
 
             describe('VerticalLayout Layout', function () {
 
                 it('should be an instance of Vertical Layout Layout', function () {
-                    var verticalLayout = new Verticallayout();
-                    expect(verticalLayout).to.be.an.instanceof(Verticallayout);
+                    var verticalLayout = new VerticalLayout();
+                    expect(verticalLayout).to.be.an.instanceof(VerticalLayout);
                 });
 
                 it('should have more test written', function () {
