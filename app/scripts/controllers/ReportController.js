@@ -3,7 +3,7 @@ define([
 		'communicator',
 		'views/layout/ReportLayout',
 		'views/reports/ReportHeaderView',
-		'components/controls/navigationMenu/NavigationMenuCmp',
+		'components/controls/navigationMenu/NavigationMenuCmp'
 	],
 	function (Backbone, Communicator, AppLayout, ReportHeaderView, NavigationMenuCmp) {
 		'use strict';
@@ -34,7 +34,7 @@ define([
 
 				this.attachHeaderView(layout);
 				this.attachSidebarView(layout);
-				this.attachContentView();
+				this.attachContentView(layout);
 
 				Communicator.mediator.trigger('message:hideLoadingMask');
 			},
@@ -50,8 +50,16 @@ define([
 				layout.sidebar.show(navigationMenu);
 			},
 
-			attachContentView : function() {
+			attachContentView : function(layout) {
 
+				require([
+					'components/overviews/imaging/ImagingOverviewModule'
+				], function(imagingOverviewModule) {
+
+					imagingOverviewModule.start();
+
+					layout.content.show(imagingOverviewModule.buildPanel());
+				});
 			}
 		});
 

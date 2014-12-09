@@ -13,6 +13,8 @@ define([
 	function (Backbone, Communicator, ModalRegion, MainRouter, ModuleManager, ReportController, ScorecardController, config, labels) {
 		'use strict';
 
+		console.log('Application constructor');
+
 		window.Insight = Insight || {};
 
 		Insight.App = new Backbone.Marionette.Application();

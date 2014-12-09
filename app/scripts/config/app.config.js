@@ -17,6 +17,11 @@ define([],
 
                 ],
                 'appName': 'Insight'
-            }
+            },
+			overviews : {
+				'imagingOverview' : {
+
+				}
+			}
         };
     });
