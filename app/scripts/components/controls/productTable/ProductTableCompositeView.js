@@ -7,10 +7,12 @@ function( Backbone, Productitemview, ProductTableCompositeViewTmpl  ) {
     'use strict';
 
 	/* Return a CompositeView class definition */
+	/** @namespace Backbone.Marionette.CompositeView */
 	return Backbone.Marionette.CompositeView.extend({
 
-		initialize: function() {
+		initialize: function(opts) {
 			console.log('initialize a Product Table  CompositeView');
+			this.opts = opts;
 		},
 
     	itemView: Productitemview,
@@ -21,10 +23,21 @@ function( Backbone, Productitemview, ProductTableCompositeViewTmpl  ) {
     	ui: {},
 
     	/* where are we appending the items views */
-    	itemViewContainer: '',
+    	itemViewContainer: 'tbody',
 
 		/* Ui events hash */
 		events: {},
+
+		/**
+		 * Makes the override function accessible by the view
+		 * @returns {{object}}
+		 */
+		serializeData: function () {
+			//noinspection JSCheckFunctionSignatures
+			return {
+				'footerMessage': this.opts.footerMessage
+			};
+		},
 
 		/* on render callback */
 		onRender: function() {}

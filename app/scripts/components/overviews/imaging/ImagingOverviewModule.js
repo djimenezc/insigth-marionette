@@ -8,14 +8,15 @@ define([
 		'views/layout/VerticalLayout',
 		'components/controls/reportFilter/ReportFilterView',
 		'components/controls/reportHeaderTitle/ReportHeaderTitleView',
-		'components/controls/panels/SimplePanelView'
+		'components/controls/panels/SimplePanelView',
+		'components/controls/productTable/ProductTableCompositeView'
 	],
 	/**
 	 *
 	 * Please, don't reference global variable inside modules.
 	 * @returns {*|module}
 	 */
-	function (App, Communicator, VerticalLayout, ReportFilterView, ReportHeaderTitle, SimplePanelView) {
+	function (App, Communicator, VerticalLayout, ReportFilterView, ReportHeaderTitle, SimplePanelView, ProductTableCompositeView) {
 		'use strict';
 
 		console.log('Imaging Overview Module: init');
@@ -63,6 +64,44 @@ define([
 				return this.mainLayout;
 			};
 
+			function buildProductCollection() {
+
+				var productCollection = new Backbone.Collection();
+
+				productCollection.add({
+					onlineStore: 'Safeway',
+					brand: 'Axe',
+					description: 'Axe Apollo Deodorant Stick - 3 Oz',
+					name: 'Axe Apollo Deodorant Stick 3 oz',
+					rpc: '960084348',
+					upc: '0079400261021',
+					score: '100%',
+					finalResult: 'pass'
+				});
+				productCollection.add({
+					onlineStore: 'Safeway',
+					brand: 'Axe',
+					description: 'Axe Apollo Deodorant Stick - 3 Oz',
+					name: 'Axe Apollo Deodorant Stick 3 oz',
+					rpc: '960084348',
+					upc: '0079400261021',
+					score: '100%',
+					finalResult: 'pass'
+				});
+				productCollection.add({
+					onlineStore: 'Safeway',
+					brand: 'Axe',
+					description: 'Axe Apollo Deodorant Stick - 3 Oz',
+					name: 'Axe Apollo Deodorant Stick 3 oz',
+					rpc: '960084348',
+					upc: '0079400261021',
+					score: '100%',
+					finalResult: 'pass'
+				});
+
+				return productCollection;
+			}
+
 			/**
 			 * Render subPanels
 			 */
@@ -70,12 +109,20 @@ define([
 
 				console.log('displaySubPanels: Overview Imaging');
 
+				var compositeView =  new ProductTableCompositeView({
+					collection: buildProductCollection(),
+					footerMessage: 'I\'m a footer'
+				});
+
 				//noinspection JSUnresolvedVariable
 				this.mainLayout.reportHeaderTitle.show(new ReportHeaderTitle());
 				//noinspection JSUnresolvedVariable
 				this.mainLayout.reportFilter.show(new ReportFilterView());
 				//noinspection JSUnresolvedVariable
 				this.mainLayout.tabPanelComparison.show(new SimplePanelView());
+				//noinspection JSUnresolvedVariable
+				this.mainLayout.panelComparisonByOvertime.show(compositeView);
+
 
 				return this.mainLayout;
 			};

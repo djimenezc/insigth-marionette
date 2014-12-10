@@ -12,8 +12,9 @@ function( Backbone, ProductItemViewTmpl  ) {
 			console.log('initialize a Product item view ItemView');
 		},
 
-    	template: ProductItemViewTmpl,
+		tagName: 'tr',
 
+    	template: ProductItemViewTmpl,
 
     	/* ui selector cache */
     	ui: {},

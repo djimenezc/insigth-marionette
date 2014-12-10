@@ -7,13 +7,13 @@
 	root.define([
 			'components/controls/productTable/ProductItemView'
 		],
-		function (Productitemview) {
+		function (ProductItemView) {
 
-			describe('Productitemview Itemview', function () {
+			describe('Product ItemView', function () {
 
-				it('should be an instance of Productitemview Itemview', function () {
-					var ProductItemView = new Productitemview();
-					expect(ProductItemView).to.be.an.instanceof(Productitemview);
+				it('should be an instance of Product ItemView', function () {
+					var productItemView = new ProductItemView();
+					expect(productItemView).to.be.an.instanceof(ProductItemView);
 				});
 
 				it('should have more test written', function () {
