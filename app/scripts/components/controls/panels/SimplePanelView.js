@@ -21,11 +21,38 @@ function( Backbone, SimplePanelViewTmpl  ) {
 
     	template: SimplePanelViewTmpl,
 
+		/**
+		 * Makes the override function accessible by the view
+		 * @returns {{object}}
+		 */
+		serializeData: function () {
+			//noinspection JSCheckFunctionSignatures
+			return {
+				'filterId': 'productFilterId'
+			};
+		},
+
     	/* ui selector cache */
-    	ui: {},
+		ui: {
+			'textfield': '#productFilterId'
+		},
 
 		/* Ui events hash */
-		events: {},
+		events: {
+			'click @ui.textfield' : 'clickAction',
+			'change @ui.textfield' : 'filterAction'
+		},
+
+		filterAction: function() {
+
+			console.log('Filtering');
+
+		},
+		clickAction: function() {
+
+			console.log('click');
+
+		},
 
 		/* on render callback */
 		onRender: function() {}
