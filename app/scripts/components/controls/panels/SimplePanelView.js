@@ -7,10 +7,14 @@ function( Backbone, SimplePanelViewTmpl  ) {
 
 	/* Return a ItemView class definition */
 	/** @namespace Backbone.Marionette.ItemView */
-	return Backbone.Marionette.ItemView.extend({
+	return Backbone.Marionette.Layout.extend({
 
 		initialize: function() {
 			console.log('initialize a Simple Panel ItemView');
+		},
+
+		regions: {
+			content: '#simple-panel-1'
 		},
 
 		className: 'width-100-percent panels-lateral-padding',

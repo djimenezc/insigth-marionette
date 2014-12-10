@@ -114,15 +114,18 @@ define([
 					footerMessage: 'I\'m a footer'
 				});
 
+				var productSimplePanel = new SimplePanelView();
+
 				//noinspection JSUnresolvedVariable
 				this.mainLayout.reportHeaderTitle.show(new ReportHeaderTitle());
 				//noinspection JSUnresolvedVariable
 				this.mainLayout.reportFilter.show(new ReportFilterView());
 				//noinspection JSUnresolvedVariable
-				this.mainLayout.tabPanelComparison.show(new SimplePanelView());
+				this.mainLayout.tabPanelComparison.show(productSimplePanel);
 				//noinspection JSUnresolvedVariable
-				this.mainLayout.panelComparisonByOvertime.show(compositeView);
+				//this.mainLayout.panelComparisonByOvertime.show(compositeView);
 
+				productSimplePanel.content.show(compositeView);
 
 				return this.mainLayout;
 			};
