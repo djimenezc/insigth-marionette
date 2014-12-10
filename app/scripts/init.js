@@ -91,6 +91,10 @@ require.config({
 		moment: '../bower_components/moment/moment',
 		lodash: '../bower_components/lodash/dist/lodash',
 
+		highcharts: '../bower_components/highcharts/highcharts.src',
+		highchartsMore: '../bower_components/highcharts/highcharts-more',
+		highchartsExporting: '../bower_components/highcharts/modules/exporting',
+
 		/* alias configuration*/
 		'config': 'config/app.config',
 		'labels': 'locale/locale_en',
