@@ -7,7 +7,10 @@ define([],
 		return {
 			pages: {
 				global: {
-					title: 'Global Scorecard'
+					title: 'Global Scorecard',
+					imaging : {
+						title: 'Comparison Overview'
+					}
 				}
 			},
 			nav: {

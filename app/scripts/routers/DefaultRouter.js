@@ -54,9 +54,10 @@ define([
 			},
 
 			reports: function (countryCode, reportName) {
-				console.log('after route');
+				console.log('report route ' + countryCode + ' ' + reportName);
 
-				Communicator.mediator.trigger('updateTitle', i18n.translate('pages.global' + reportName + '.title'));
+				//noinspection JSCheckFunctionSignatures
+				Communicator.mediator.trigger('updateTitle', i18n.translate('pages.global.' + reportName + '.title'));
 
 				Communicator.reqres.request('getController', 'ReportController').buildPage(countryCode, reportName);
 			}
