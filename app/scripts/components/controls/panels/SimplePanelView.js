@@ -1,8 +1,9 @@
 define([
 	'backbone',
+	'communicator',
 	'hbs!components/controls/panels/SimplePanel_tmpl'
 ],
-function( Backbone, SimplePanelViewTmpl  ) {
+function( Backbone, Communicator, SimplePanelViewTmpl  ) {
     'use strict';
 
 	/* Return a ItemView class definition */
@@ -40,13 +41,14 @@ function( Backbone, SimplePanelViewTmpl  ) {
 		/* Ui events hash */
 		events: {
 			'click @ui.textfield' : 'clickAction',
-			'change @ui.textfield' : 'filterAction'
+			'keyup @ui.textfield' : 'filterAction'
 		},
 
-		filterAction: function() {
+		filterAction: function(e) {
 
 			console.log('Filtering');
 
+			Communicator.mediator.trigger('panel:filtering', e.target.value);
 		},
 		clickAction: function() {
 

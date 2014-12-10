@@ -1,46 +1,61 @@
 define([
-	'backbone',
-	'components/controls/productTable/ProductItemView',
-	'hbs!components/controls/productTable/ProductTableCompositeView_tmpl'
-],
-function( Backbone, Productitemview, ProductTableCompositeViewTmpl  ) {
-    'use strict';
+		'backbone',
+		'communicator',
 
-	/* Return a CompositeView class definition */
-	/** @namespace Backbone.Marionette.CompositeView */
-	return Backbone.Marionette.CompositeView.extend({
+		'components/controls/productTable/ProductItemView',
+		'hbs!components/controls/productTable/ProductTableCompositeView_tmpl'
+	],
+	function (Backbone, Communicator, ProductItemView, ProductTableCompositeViewTmpl) {
+		'use strict';
 
-		initialize: function(opts) {
-			console.log('initialize a Product Table  CompositeView');
-			this.opts = opts;
-		},
+		/* Return a CompositeView class definition */
+		/** @namespace Backbone.Marionette.CompositeView */
+		return Backbone.Marionette.CompositeView.extend({
 
-    	itemView: Productitemview,
+			initialize: function (opts) {
+				console.log('initialize a Product Table  CompositeView');
+				this.opts = opts;
 
-    	template: ProductTableCompositeViewTmpl,
+				this.listenTo(this.collection, 'reset', this.render, this);
+				this.originalDataCollection = this.collection.toJSON();
 
-    	/* ui selector cache */
-    	ui: {},
+				Communicator.mediator.on('panel:filtering', this.filterTable, this);
+			},
 
-    	/* where are we appending the items views */
-    	itemViewContainer: 'tbody',
+			itemView: ProductItemView,
 
-		/* Ui events hash */
-		events: {},
+			template: ProductTableCompositeViewTmpl,
 
-		/**
-		 * Makes the override function accessible by the view
-		 * @returns {{object}}
-		 */
-		serializeData: function () {
-			//noinspection JSCheckFunctionSignatures
-			return {
-				'footerMessage': this.opts.footerMessage
-			};
-		},
+			/* ui selector cache */
+			ui: {},
 
-		/* on render callback */
-		onRender: function() {}
+			/* where are we appending the items views */
+			itemViewContainer: 'tbody',
+
+			/* Ui events hash */
+			events: {},
+
+			/**
+			 * Makes the override function accessible by the view
+			 * @returns {{object}}
+			 */
+			serializeData: function () {
+				//noinspection JSCheckFunctionSignatures
+				return {
+					'footerMessage': this.opts.footerMessage
+				};
+			},
+
+			filterTable : function(value) {
+
+				console.log('filterTable ' + value);
+
+				this.collection.reset(this.originalDataCollection, {silent:true});
+				var results = this.collection.filterByText(value);
+
+				this.collection.reset(results);
+			}
+
+		});
+
 	});
-
-});

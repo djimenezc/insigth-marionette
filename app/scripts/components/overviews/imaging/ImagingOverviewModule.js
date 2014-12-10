@@ -9,14 +9,15 @@ define([
 		'components/controls/reportFilter/ReportFilterView',
 		'components/controls/reportHeaderTitle/ReportHeaderTitleView',
 		'components/controls/panels/SimplePanelView',
-		'components/controls/productTable/ProductTableCompositeView'
+		'components/controls/productTable/ProductTableCompositeView',
+		'collections/ProductCollection'
 	],
 	/**
 	 *
 	 * Please, don't reference global variable inside modules.
 	 * @returns {*|module}
 	 */
-	function (App, Communicator, VerticalLayout, ReportFilterView, ReportHeaderTitle, SimplePanelView, ProductTableCompositeView) {
+	function (App, Communicator, VerticalLayout, ReportFilterView, ReportHeaderTitle, SimplePanelView, ProductTableCompositeView, ProductCollection) {
 		'use strict';
 
 		console.log('Imaging Overview Module: init');
@@ -66,7 +67,7 @@ define([
 
 			function buildProductCollection() {
 
-				var productCollection = new Backbone.Collection();
+				var productCollection = new ProductCollection();
 
 				productCollection.add({
 					onlineStore: 'Safeway',
@@ -80,7 +81,7 @@ define([
 				});
 				productCollection.add({
 					onlineStore: 'Safeway',
-					brand: 'Axe',
+					brand: 'Axa',
 					description: 'Axe Apollo Deodorant Stick - 3 Oz',
 					name: 'Axe Apollo Deodorant Stick 3 oz',
 					rpc: '960084348',
@@ -90,7 +91,17 @@ define([
 				});
 				productCollection.add({
 					onlineStore: 'Safeway',
-					brand: 'Axe',
+					brand: 'Axu',
+					description: 'Axe Apollo Deodorant Stick - 3 Oz',
+					name: 'Axe Apollo Deodorant Stick 3 oz',
+					rpc: '960084348',
+					upc: '0079400261021',
+					score: '100%',
+					finalResult: 'fail'
+				});
+				productCollection.add({
+					onlineStore: 'Safeway',
+					brand: 'Axo',
 					description: 'Axe Apollo Deodorant Stick - 3 Oz',
 					name: 'Axe Apollo Deodorant Stick 3 oz',
 					rpc: '960084348',
@@ -98,6 +109,27 @@ define([
 					score: '100%',
 					finalResult: 'pass'
 				});
+				productCollection.add({
+					onlineStore: 'Safeway',
+					brand: 'Axo',
+					description: 'Axe Apollo Deodorant Stick - 3 Oz',
+					name: 'Axe Apollo Deodorant Stick 3 oz',
+					rpc: '960084348',
+					upc: '0079400261021',
+					score: '100%',
+					finalResult: 'pass'
+				});
+				productCollection.add({
+					onlineStore: 'Safeway',
+					brand: 'Axi',
+					description: 'Axe Apollo Deodorant Stick - 3 Oz',
+					name: 'Axe Apollo Deodorant Stick 3 oz',
+					rpc: '960084348',
+					upc: '0079400261021',
+					score: '100%',
+					finalResult: 'fail'
+				});
+
 
 				return productCollection;
 			}
