@@ -40,12 +40,13 @@ define([
 				this.navigate('global', {trigger: true, replace: true});
 			},
 
-			global: function () {
+			global: function (countryCode) {
 				console.log('after route');
 
 				//noinspection JSCheckFunctionSignatures
 				Communicator.mediator.trigger('updateTitle', i18n.translate('pages.global.title'));
 
+				Communicator.reqres.request('getController', 'ScorecardController').buildPage(countryCode);
 			},
 
 			advanceSearch: function () {

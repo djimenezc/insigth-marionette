@@ -20,7 +20,14 @@ function( Backbone, ProductItemViewTmpl  ) {
     	ui: {},
 
 		/* Ui events hash */
-		events: {},
+		events: {
+			'click td' : 'cellClick'
+		},
+
+		cellClick : function() {
+
+			alert('The cell was clicked');
+		},
 
 		/* on render callback */
 		onRender: function() {}
