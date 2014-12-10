@@ -40,25 +40,29 @@ define([
 				this.navigate('global', {trigger: true, replace: true});
 			},
 
-			global: function (countryCode) {
+			global: function () {
 				console.log('after route');
 
 				//noinspection JSCheckFunctionSignatures
 				Communicator.mediator.trigger('updateTitle', i18n.translate('pages.global.title'));
 
-				Communicator.reqres.request('getController', 'ScorecardController').buildPage(countryCode);
+				Communicator.reqres.request('getController', 'ScorecardController').buildPage();
 			},
 
-			advanceSearch: function () {
-				console.log('after route');
+			advanceSearch: function (countryCode) {
+				console.log('advanceSearch');
 
+				//noinspection JSCheckFunctionSignatures
+				Communicator.mediator.trigger('updateTitle', i18n.translate('pages.advancedSearch.title'));
+
+				Communicator.reqres.request('getController', 'ScorecardController').buildPage(countryCode);
 			},
 
 			reports: function (countryCode, reportName) {
 				console.log('report route ' + countryCode + ' ' + reportName);
 
 				//noinspection JSCheckFunctionSignatures
-				Communicator.mediator.trigger('updateTitle', i18n.translate('pages.global.' + reportName + '.title'));
+				Communicator.mediator.trigger('updateTitle', i18n.translate('pages.' + reportName + '.title'));
 
 				Communicator.reqres.request('getController', 'ReportController').buildPage(countryCode, reportName);
 			}
