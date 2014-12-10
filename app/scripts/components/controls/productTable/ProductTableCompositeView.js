@@ -16,8 +16,10 @@ define([
 				console.log('initialize a Product Table  CompositeView');
 				this.opts = opts;
 
-				this.listenTo(this.collection, 'reset', this.render, this);
-				this.originalDataCollection = this.collection.toJSON();
+				if(this.collection) {
+					this.listenTo(this.collection, 'reset', this.render, this);
+					this.originalDataCollection = this.collection.toJSON();
+				}
 
 				Communicator.mediator.on('panel:filtering', this.filterTable, this);
 			},
