@@ -1,12 +1,14 @@
 <div class="panel panel-default ">
     <div class="panel-heading">
     <span class="panelHelp" title="" data-original-title="View of latest results by Online Store, Category or Brand">
-    Comparison
-
-    by Online Store on August 1st, 2014<span class="glyphicon glyphicon-question-sign"></span></span>
+   {{title}}  <span class="glyphicon glyphicon-question-sign"></span>
         <span class="slot1 pull-right"></span>
-        <button type="button" class="display-all pull-right btn btn-default btn-sm hidden">Display All </button>
-        <input id="{{filterId}}" type="text" class="form-control input-sm filterHeaderField pull-right" placeholder="Filter" value="">
+        <button type="button" class="display-all pull-right btn btn-default btn-sm hidden">Display All</button>
+		{{#if filter}}
+            <input id="{{filterId}}" type="text" class="form-control input-sm filterHeaderField pull-right"
+                   placeholder="Filter" value="">
+		{{/if}}
+		</span>
     </div>
 
     <div class="preloader-view row-fluid clearfix hide">
@@ -15,8 +17,7 @@
         </div>
     </div>
 
-
-    <div id="simple-panel-1"></div>
+    <div id="{{prefix}}-simple-panel"></div>
 </div>
 
 

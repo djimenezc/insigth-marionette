@@ -1,63 +1,67 @@
 define([
-	'backbone',
-	'communicator',
-	'hbs!components/controls/panels/SimplePanel_tmpl'
-],
-function( Backbone, Communicator, SimplePanelViewTmpl  ) {
-    'use strict';
+		'backbone',
+		'communicator',
+		'hbs!components/controls/panels/SimplePanel_tmpl'
+	],
+	function (Backbone, Communicator, SimplePanelViewTmpl) {
+		'use strict';
 
-	/* Return a ItemView class definition */
-	/** @namespace Backbone.Marionette.ItemView */
-	return Backbone.Marionette.Layout.extend({
+		/* Return a ItemView class definition */
+		/** @namespace Backbone.Marionette.ItemView */
+		return Backbone.Marionette.Layout.extend({
 
-		initialize: function() {
-			console.log('initialize a Simple Panel ItemView');
-		},
+			initialize: function (opts) {
+				console.log('initialize a Simple Panel ItemView');
 
-		regions: {
-			content: '#simple-panel-1'
-		},
+				this.opts = opts;
 
-		className: 'width-100-percent panels-lateral-padding',
+				this.addRegion('content', '#' + this.opts.prefix + '-simple-panel');
+			},
 
-    	template: SimplePanelViewTmpl,
+			className: 'width-100-percent panels-lateral-padding',
 
-		/**
-		 * Makes the override function accessible by the view
-		 * @returns {{object}}
-		 */
-		serializeData: function () {
-			//noinspection JSCheckFunctionSignatures
-			return {
-				'filterId': 'productFilterId'
-			};
-		},
+			template: SimplePanelViewTmpl,
 
-    	/* ui selector cache */
-		ui: {
-			'textfield': '#productFilterId'
-		},
+			/**
+			 * Makes the override function accessible by the view
+			 * @returns {{object}}
+			 */
+			serializeData: function () {
+				//noinspection JSCheckFunctionSignatures
+				return {
+					'filterId': 'productFilterId',
+					'prefix': this.opts.prefix,
+					filter: this.opts.filter ? true : false,
+					title: this.opts.title
+				};
+			},
 
-		/* Ui events hash */
-		events: {
-			'click @ui.textfield' : 'clickAction',
-			'keyup @ui.textfield' : 'filterAction'
-		},
+			/* ui selector cache */
+			ui: {
+				'textfield': '#productFilterId'
+			},
 
-		filterAction: function(e) {
+			/* Ui events hash */
+			events: {
+				'click @ui.textfield': 'clickAction',
+				'keyup @ui.textfield': 'filterAction'
+			},
 
-			console.log('Filtering');
+			filterAction: function (e) {
 
-			Communicator.mediator.trigger('panel:filtering', e.target.value);
-		},
-		clickAction: function() {
+				console.log('Filtering');
 
-			console.log('click');
+				Communicator.mediator.trigger('panel:filtering', e.target.value);
+			},
+			clickAction: function () {
 
-		},
+				console.log('click');
 
-		/* on render callback */
-		onRender: function() {}
+			},
+
+			/* on render callback */
+			onRender: function () {
+			}
+		});
+
 	});
-
-});

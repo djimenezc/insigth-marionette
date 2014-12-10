@@ -10,14 +10,15 @@ define([
 		'components/controls/reportHeaderTitle/ReportHeaderTitleView',
 		'components/controls/panels/SimplePanelView',
 		'components/controls/productTable/ProductTableCompositeView',
-		'collections/ProductCollection'
+		'collections/ProductCollection',
+		'components/charts/AvailabilityByBrandChartView'
 	],
 	/**
 	 *
 	 * Please, don't reference global variable inside modules.
 	 * @returns {*|module}
 	 */
-	function (App, Communicator, VerticalLayout, ReportFilterView, ReportHeaderTitle, SimplePanelView, ProductTableCompositeView, ProductCollection) {
+	function (App, Communicator, VerticalLayout, ReportFilterView, ReportHeaderTitle, SimplePanelView, ProductTableCompositeView, ProductCollection, AvailabilityByBrandChartView) {
 		'use strict';
 
 		console.log('Imaging Overview Module: init');
@@ -141,12 +142,20 @@ define([
 
 				console.log('displaySubPanels: Overview Imaging');
 
-				var compositeView =  new ProductTableCompositeView({
-					collection: buildProductCollection(),
-					footerMessage: 'I\'m a footer'
-				});
-
-				var productSimplePanel = new SimplePanelView();
+				var compositeView = new ProductTableCompositeView({
+						collection: buildProductCollection(),
+						footerMessage: 'I\'m a footer'
+					}),
+					availabilityChart = new AvailabilityByBrandChartView(),
+					productSimplePanel = new SimplePanelView({
+						prefix: 'table',
+						filter: true,
+						title: 'Comparison by Online Store on August 1st, 2014'
+					}),
+					availabilityChartPanel = new SimplePanelView({
+						prefix: 'availabilityChart',
+						title: 'Portfolio Availability by Brand on September 1st, 2014'
+					});
 
 				//noinspection JSUnresolvedVariable
 				this.mainLayout.reportHeaderTitle.show(new ReportHeaderTitle());
@@ -155,9 +164,10 @@ define([
 				//noinspection JSUnresolvedVariable
 				this.mainLayout.tabPanelComparison.show(productSimplePanel);
 				//noinspection JSUnresolvedVariable
-				//this.mainLayout.panelComparisonByOvertime.show(compositeView);
+				this.mainLayout.panelComparisonByOvertime.show(availabilityChartPanel);
 
 				productSimplePanel.content.show(compositeView);
+				availabilityChartPanel.content.show(availabilityChart);
 
 				return this.mainLayout;
 			};
