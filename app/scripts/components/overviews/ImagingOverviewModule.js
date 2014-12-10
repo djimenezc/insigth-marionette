@@ -3,7 +3,7 @@
  * Created by djimenez on 13/06/2014.
  */
 define([
-		'../../application',
+		'application',
 		'communicator',
 		'views/layout/VerticalLayout',
 		'components/controls/reportFilter/ReportFilterView',

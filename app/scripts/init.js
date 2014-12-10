@@ -99,6 +99,8 @@ require.config({
         text: '../bower_components/requirejs-text/text',
         tmpl: '../templates',
 
+		application : 'application',
+
 		/* handlebars from the require handlebars plugin below */
 		handlebars: '../bower_components/hbs/hbs/handlebars',
 

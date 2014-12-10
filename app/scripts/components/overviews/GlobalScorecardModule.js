@@ -3,7 +3,7 @@
  * Created by djimenez on 13/06/2014.
  */
 define([
-		'../../application',
+		'application',
 		'communicator',
 		'components/controls/scorecard/ScorecardPanelView'
 	],
