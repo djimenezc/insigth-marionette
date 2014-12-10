@@ -53,7 +53,7 @@ define([
 			attachContentView : function(layout) {
 
 				require([
-					'components/overviews/imaging/ImagingOverviewModule'
+					'components/overviews/ImagingOverviewModule'
 				], function(imagingOverviewModule) {
 
 					imagingOverviewModule.start();
