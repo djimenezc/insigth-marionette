@@ -14,30 +14,34 @@ define([
 				BaseChartView.prototype.initialize.apply(this, arguments);
 
 				this.opts.chartType = 'pie';
+				this.opts.title = '89%';
+				this.opts.subtitle = 'of 5485 products are available';
 			},
 
 			getSeriesData: function () {
 
 				return [{
-					'name': 'In Stock',
-					'color': '#50b432',
-					'data': [8, 16, 21, 4, 21, 54, 26, 53, 63, 47]
-				}, {
-					'name': 'Not Listed',
-					'color': '#E56363',
-					'data': [-5, -1, null, null, -2, -13, -6, -12, -9, null]
-				}, {
-					'name': 'Not Sold Online',
-					'color': '#87CEEB',
-					'data': [null, null, null, null, null, -2, null, null, null, null]
-				}, {
-					'name': 'Out of Stock',
-					'color': '#DA3610',
-					'data': [-10, -10, -11, -2, -4, null, null, -1, -4, -9]
+					'name': 'Products',
+					'data': [{
+						'y': 4867,
+						'percent': '89',
+						'color': '#50b432',
+						'name': 'Available To Purchase',
+						'events': {}
+					}, {
+						'y': 618,
+						'percent': '11',
+						'color': '#808080',
+						'name': 'Not Available To Purchase',
+						'events': {}
+					}],
+					'size': '100%',
+					'innerSize': '70%',
+					'dataLabels': {'enabled': false, 'style': {'fontSize': '12px'}}
 				}];
 			},
 
-			getCategories : function() {
+			getCategories: function () {
 
 				return ['TRESemme', 'Klondike', 'Ben & Jerry\'s', 'Good Humor', 'Popsicle', 'TIGI', 'Best Foods', 'Just For Me', 'Hellmann\'s', 'Breyers'];
 			}

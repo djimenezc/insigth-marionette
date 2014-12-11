@@ -13,6 +13,8 @@ define([
 
 				this.opts = opts ? opts : {};
 				this.opts.chartType = this.opts.chartType ? this.opts.chartType : 'column';
+				this.opts.title = this.opts.title ? this.opts.title : '';
+				this.opts.subtitle = this.opts.subtitle ? this.opts.subtitle : '';
 			},
 
 			template: Template,
@@ -21,6 +23,14 @@ define([
 				console.log('Rendering AvailabilityByBrandChartView');
 
 				this.$el.html(this.template(this.attributes));
+			},
+
+			getTitle : function() {
+				return this.opts.title;
+			},
+
+			getSubtitle : function() {
+				return this.opts.subtitle;
 			},
 
 			/**
@@ -44,7 +54,15 @@ define([
 						type: this.opts.chartType
 					},
 					title: {
-						text: ''
+						text: this.getTitle()
+					},
+					subtitle: {
+						text: this.getSubtitle(),
+						y: 155,
+						style: {
+							fontSize: '18px'
+						},
+						margin: 0
 					},
 					xAxis: {
 						categories: categories,
