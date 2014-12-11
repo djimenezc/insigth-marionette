@@ -68,7 +68,54 @@ module.exports = function (grunt) {
 					port: 1234,
 					base: '.'
 				}
-			}
+			},
+			delay: [
+				{ url: '^/api/.*$', delay: 1000 } // Delay calls to API by 10sec
+			],
+			dist: {
+				options: {
+					open: true,
+					base: '<%= yeoman.dist %>',
+
+					middleware: function (connect, options) {
+
+						console.log('Middleware configuration');
+
+						var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest,
+							delayRequestSnippet = require('grunt-connect-delay/lib/utils').delayRequest;
+
+						return [
+							delayRequestSnippet,
+							proxySnippet,
+							// Serve static files.
+							connect.static(options.base),
+							// Make empty directories browsable.
+							connect.directory(options.base)
+//                            function (req, res) {
+//
+//                                console.log('Connect middleware');
+////
+////                                res.setHeader('Content-Type', 'text/cache-manifest');
+//                                res.end();
+//                                return res;
+//                            }
+						];
+					}
+				}
+			},
+			proxies: [
+				{
+					context: '',
+					host: '127.0.0.1',
+					port: 9001,
+					https: false,
+					xforward: true,
+					headers: {
+						'x-custom-added-header': 'asdasdas'
+					}
+				}
+			]
+
 		},
 
 		// mocha command
@@ -157,7 +204,7 @@ module.exports = function (grunt) {
 					baseUrl: 'app/scripts',
 					optimize: 'none',
 					paths: {
-						'templates': '../../.tmp/scripts/templates'
+						//'templates': 'template'
 					},
 					// TODO: Figure out how to make sourcemaps work with grunt-usemin
 					// https://github.com/yeoman/grunt-usemin/issues/30
@@ -328,6 +375,15 @@ module.exports = function (grunt) {
 		'uglify',
 		'copy',
 		'usemin'
+	]);
+
+	grunt.registerTask('serverDist', [
+		'build',
+		'express:dev',
+		'configureDelayRules',
+		'configureProxies:dist',
+		'connect:dist',
+		'watch'
 	]);
 
 };

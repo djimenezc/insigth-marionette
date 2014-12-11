@@ -1,6 +1,6 @@
 define(
     [
-        'handlebars'
+        'hbs/handlebars'
     ],
     function(hb) {
         'use strict';

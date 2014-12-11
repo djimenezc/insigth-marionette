@@ -3,7 +3,7 @@
  */
 define([
 		'backbone',
-		'handlebars',
+		'hbs/handlebars',
 		'helpers/i18n'
 	],
 	function (Backbone, Handlebars, i18n) {

@@ -3,7 +3,7 @@
  */
 define([
         'backbone',
-        'handlebars'
+        'hbs/handlebars'
     ],
     function (Backbone, Handlebars) {
         'use strict';

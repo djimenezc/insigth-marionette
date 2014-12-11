@@ -54,11 +54,11 @@ require.config({
 				'marionette.region.extension',
 				'bootstrap',
 				'config',
-				'template/helpers/templateHelpers',
-				'template/helpers/i18n',
-				'template/helpers/parseJSON',
-				'template/helpers/times',
-				'template/helpers/recursivepartial',
+				'templates/helpers/templateHelpers',
+				'templates/helpers/i18n',
+				'templates/helpers/parseJSON',
+				'templates/helpers/times',
+				'templates/helpers/recursivepartial',
 				'views/layout/VerticalLayout',
 				'views/layout/HorizontalLayout'
 			]
@@ -67,8 +67,8 @@ require.config({
 
 	map: {
 		'*': {
-			underscore: 'lodash', // alias lodash as underscore
-			'hbs/handlebars': 'handlebars'
+			underscore: 'lodash' // alias lodash as underscore
+			//'hbs/handlebars': 'handlebars'
 		}
 	},
 
@@ -106,7 +106,7 @@ require.config({
 		application : 'application',
 
 		/* handlebars from the require handlebars plugin below */
-		handlebars: '../bower_components/hbs/hbs/handlebars',
+		'hbs/handlebars': '../bower_components/hbs/hbs/handlebars',
 
         /* require handlebars plugin - Alex Sexton */
         i18nprecompile: '../bower_components/hbs/hbs/i18nprecompile',
