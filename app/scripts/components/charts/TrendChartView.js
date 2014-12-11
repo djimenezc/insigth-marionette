@@ -9,9 +9,10 @@ define([
 		//noinspection JSUnusedGlobalSymbols
 		return BaseChartView.extend({
 			initialize: function () {
-				console.log('initialize a Availability by brand chart View');
+				console.log('initialize a trend chart View');
 
 				BaseChartView.prototype.initialize.apply(this, arguments);
+				this.opts.chartType = 'area';
 			},
 
 			getSeriesData: function () {

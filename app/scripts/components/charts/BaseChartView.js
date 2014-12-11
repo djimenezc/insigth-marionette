@@ -8,8 +8,11 @@ define([
 
 		//noinspection JSUnusedGlobalSymbols
 		return Backbone.View.extend({
-			initialize: function () {
+			initialize: function (opts) {
 				console.log('initialize a chart View');
+
+				this.opts = opts ? opts : {};
+				this.opts.chartType = this.opts.chartType ? this.opts.chartType : 'column';
 			},
 
 			template: Template,
@@ -38,7 +41,7 @@ define([
 				//noinspection JSUnusedGlobalSymbols
 				return {
 					chart: {
-						type: 'column'
+						type: this.opts.chartType
 					},
 					title: {
 						text: ''

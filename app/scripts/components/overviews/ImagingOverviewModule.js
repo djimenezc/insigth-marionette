@@ -1,4 +1,3 @@
-//noinspection JSValidateJSDoc
 /**
  * Created by djimenez on 13/06/2014.
  */
@@ -6,19 +5,22 @@ define([
 		'application',
 		'communicator',
 		'views/layout/VerticalLayout',
+		'views/layout/HorizontalLayout',
 		'components/controls/reportFilter/ReportFilterView',
 		'components/controls/reportHeaderTitle/ReportHeaderTitleView',
 		'components/controls/panels/SimplePanelView',
 		'components/controls/productTable/ProductTableCompositeView',
 		'collections/ProductCollection',
-		'components/charts/AvailabilityByBrandChartView'
+		'components/charts/AvailabilityByBrandChartView',
+		'components/charts/PieChartView',
+		'components/charts/TrendChartView'
 	],
 	/**
 	 *
 	 * Please, don't reference global variable inside modules.
-	 * @returns {*|module}
+	 * @returns {*}
 	 */
-	function (App, Communicator, VerticalLayout, ReportFilterView, ReportHeaderTitle, SimplePanelView, ProductTableCompositeView, ProductCollection, AvailabilityByBrandChartView) {
+	function (App, Communicator, VerticalLayout, HorizontalLayout, ReportFilterView, ReportHeaderTitle, SimplePanelView, ProductTableCompositeView, ProductCollection, AvailabilityByBrandChartView, PieChartView, TrendChartView ) {
 		'use strict';
 
 		console.log('Imaging Overview Module: init');
@@ -59,6 +61,7 @@ define([
 						'reportHeaderTitle',
 						'reportFilter',
 						'tabPanelComparison',
+						'twoChartHorizontal',
 						'panelComparisonByOvertime'
 					]
 				});
@@ -147,6 +150,8 @@ define([
 						footerMessage: 'I\'m a footer'
 					}),
 					availabilityChart = new AvailabilityByBrandChartView(),
+					pierChart = new PieChartView(),
+					trendChart = new TrendChartView(),
 					productSimplePanel = new SimplePanelView({
 						prefix: 'table',
 						filter: true,
@@ -155,6 +160,12 @@ define([
 					availabilityChartPanel = new SimplePanelView({
 						prefix: 'availabilityChart',
 						title: 'Portfolio Availability by Brand on September 1st, 2014'
+					}),
+					twoChartHorizontalLayout = new HorizontalLayout({
+						regions: [
+							'pieChart',
+							'trendChart'
+						]
 					});
 
 				//noinspection JSUnresolvedVariable
@@ -165,13 +176,19 @@ define([
 				this.mainLayout.tabPanelComparison.show(productSimplePanel);
 				//noinspection JSUnresolvedVariable
 				this.mainLayout.panelComparisonByOvertime.show(availabilityChartPanel);
+				//noinspection JSUnresolvedVariable
+				this.mainLayout.twoChartHorizontal.show(twoChartHorizontalLayout);
 
 				productSimplePanel.content.show(compositeView);
 				availabilityChartPanel.content.show(availabilityChart);
 
+				//noinspection JSUnresolvedVariable
+				twoChartHorizontalLayout.pieChart.show(pierChart);
+				//noinspection JSUnresolvedVariable
+				twoChartHorizontalLayout.trendChart.show(trendChart);
+
 				return this.mainLayout;
 			};
-
 		});
 	}
 );
