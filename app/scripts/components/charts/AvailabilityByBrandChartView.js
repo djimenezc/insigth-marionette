@@ -1,87 +1,15 @@
 define([
 		'backbone',
-		'hbs!components/charts/AvailabilityByBrandChartView_tmpl',
+		'components/charts/BaseChartView',
 		'highcharts'
 	],
-	function (Backbone, Template) {
+	function (Backbone, BaseChartView) {
 		'use strict';
 
 		//noinspection JSUnusedGlobalSymbols
-		return Backbone.View.extend({
+		return BaseChartView.extend({
 			initialize: function () {
 				console.log('initialize a Availability by brand chart View');
-			},
-
-			template: Template,
-
-			render: function () {
-				console.log('Rendering AvailabilityByBrandChartView');
-
-				this.$el.html(this.template(this.attributes));
-			},
-
-			processChartConfiguration: function (series, categories, min, max, numberType, valueFormat) {
-
-				var isRatio = false;
-
-				//noinspection JSUnusedGlobalSymbols
-				return {
-					chart: {
-						type: 'column'
-					},
-					title: {
-						text: ''
-					},
-					xAxis: {
-						categories: categories,
-						tickLength: 0
-					},
-					yAxis: {
-						min: min,
-						max: max,
-						allowDecimals: false,
-						title: {
-							text: 'Product ' + numberType,
-							margin: 20
-						},
-						labels: {
-							format: valueFormat,
-							formatter: function () {
-								var val = (Math.abs(this.value));
-								if (!isRatio) {
-									return val;
-								}
-								return val + '%';
-							}
-						}
-					},
-					plotOptions: {
-						column: {
-							stacking: 'normal',
-							borderWidth: 0,
-							shadow: false
-						},
-						series: {
-							events: {
-								click: function () {
-									//e.preventDefault();
-									//var data = {
-									//	dimensionItem: e.point.category,
-									//	dimension: templateModel.meta.dimension.id
-									//};
-									//self._goToAnalysis(data);
-								}
-							},
-							states: {
-								hover: {
-									brightness: 0.1
-								}
-							}
-						}
-					},
-					//tooltip: highchartsTooltipPopover.createTooltipConfig(this.tooltipFormatter, true),
-					series: series
-				};
 			},
 
 			getSeriesData: function () {
@@ -108,27 +36,6 @@ define([
 			getCategories : function() {
 
 				return ['TRESemme', 'Klondike', 'Ben & Jerry\'s', 'Good Humor', 'Popsicle', 'TIGI', 'Best Foods', 'Just For Me', 'Hellmann\'s', 'Breyers'];
-			},
-
-			/**
-			 * Method executed when the view is rendered.
-			 * @returns {*}
-			 */
-			onShow: function () {
-
-				console.log('after render');
-
-				var series = this.getSeriesData(),
-					categories = this.getCategories(),
-					min = -15,
-					max = 63,
-					numberType = 'count',
-					valueFormat = '{value}';
-
-				var config = this.processChartConfiguration(series, categories, min, max, numberType, valueFormat);
-
-					/** @namespace this.$el */
-					this.$el.find('.chart').highcharts(config);
 			}
 		});
 	});

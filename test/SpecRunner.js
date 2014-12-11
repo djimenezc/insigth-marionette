@@ -67,6 +67,10 @@ require.config({
 		lodash: '../bower_components/lodash/dist/lodash',
 		moment: '../bower_components/moment/moment',
 
+		highcharts: '../bower_components/highcharts/highcharts.src',
+		highchartsMore: '../bower_components/highcharts/highcharts-more',
+		highchartsExporting: '../bower_components/highcharts/modules/exporting',
+
 		/* alias configuration*/
 		'config': 'config/app.config',
 		'labels': 'locale/locale_en',
@@ -74,6 +78,8 @@ require.config({
         /* Alias text.js for template loading and shortcut the templates dir to tmpl */
         text: '../bower_components/requirejs-text/text',
         tmpl: '../templates',
+
+		application : 'application',
 
 		/* handlebars from the require handlebars plugin below */
 		handlebars: '../bower_components/hbs/hbs/handlebars',
