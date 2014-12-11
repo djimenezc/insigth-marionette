@@ -1,0 +1,48 @@
+.login_box {
+	width: 600px;
+	margin: 0 auto;
+}
+
+.login_box .panel {
+	border-radius: 2px;
+	margin-top: 120px;
+	margin-bottom: 0;
+}
+
+.login_button {
+	height: 50px;
+	width: 89%;
+	float: left;
+	background-color: #00afe5;
+	border-color: #00afe5;
+	&.btn-block {
+		width: 100%;
+	}
+}
+
+.chatter_login_button {
+	padding-left: 0px;
+	padding-right: 0px;
+	height: 50px;
+	width: 10%;
+	float: right;
+	background-color: #00afe5;
+	border-color: #00afe5;
+}
+
+.logging_in_message {
+	color: white;
+	padding: 10 10;
+}
+
+@media (max-width: 740px) {
+  	.login_box {
+    	width: 90%;
+    	padding: 0 10px;
+    	margin: 0 auto;
+	}
+	.login_box .panel {
+  		margin-top: 80px;
+  		margin-bottom: 20px;
+  	}
+}

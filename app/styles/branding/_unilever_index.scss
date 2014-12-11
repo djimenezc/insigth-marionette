@@ -1,0 +1,359 @@
+.group {
+    width: 960px;
+    margin: 100px auto;
+    display: block
+}
+.grid3 {
+    float: left;
+    width: 300px;
+    margin: 0 20px 20px 0;
+    background: #fff;
+    position: relative;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    min-height: 290px
+}
+.square {
+    width: 300px;
+}
+.square [data-clickable="true"],
+.square .icon-move {
+    cursor: pointer;
+}
+.square.disabled {
+    opacity: 0.25;
+}
+.render {
+    width: 99%;
+}
+.g2 {
+    height: 598px;
+    max-height: 600px;
+    list-style: none;
+}
+i.icon-move {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 99;
+    opacity: 0.3;
+}
+.grid3 .metrics {
+    width: 100%;
+    text-align: center;
+}
+.grid3 .gauge {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    min-width: 290px;
+    width: 100%;
+    z-index: 60;
+    height: 225px;
+    margin: 2px 0;
+}
+.grid3 ul.actual li.hero {
+    width: 100%;
+    font-weight: 300;
+    font-size: 4em;
+    color: #545454;
+    line-height: 60px;
+    height: 60px;
+    letter-spacing: -3px;
+}
+.grid3 ul.actual li.hero h2 {
+    font-weight: 300;
+    font-size: 0.5em;
+    color: #545454;
+    letter-spacing: normal;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+.grid3 ul.actual li.hero span.up {
+    font-size: 0.2em;
+    vertical-align: top;
+}
+.grid3 ul.actual li.hero span.unavailable {
+    font-size: 0.3em;
+    vertical-align: top;
+    letter-spacing: 0em;
+}
+.grid3 ul.actual li.flag {
+    width: 100%;
+    font-size: 4em;
+    color: #7c8692;
+    line-height: 35px;
+    margin-top: 5px;
+}
+.grid3 ul.actual li.countryName {
+    width: 100%;
+    ;
+    color: #7c8692;
+    font-weight: 300;
+    font-size: 0.8em;
+}
+.grid3 .legend {
+    position: absolute;
+    bottom: 41px;
+    width: 100%;
+    height: 20px;
+    font-size: 11px;
+    line-height: 20px;
+    color: #545454;
+    text-align: center;
+}
+.square .legend span {
+    font-size: 8px;
+    margin: 0 2px 0 4px;
+}
+.grid3 ul.actual2 {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    z-index: 6;
+    padding: 0;
+    color: #7c8692;
+}
+.grid3 ul.actual2 li.hero2 {
+    width: 100%;
+    font-weight: 300;
+    font-size: 4em;
+    color: #545454;
+    line-height: 50px;
+    letter-spacing: -3px;
+}
+.grid3 ul.actual2 li.hero2 h2 {
+    font-weight: 300;
+    font-size: 0.5em;
+    color: #545454;
+    letter-spacing: normal;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+.grid3 ul.actual2 li.flag2 {
+    width: 100%;
+    font-size: 8em;
+    color: #7c8692;
+    line-height: 46px;
+}
+.grid3 ul.actual2 li.flag2 img {
+    margin: 14px;
+}
+
+.grid3 ul.actual2 li.countryName2 {
+    width: 100%;
+    ;
+    color: #7c8692;
+    font-weight: 300;
+    font-size: 1.2em;
+}
+.grid3.g2 ul.actual {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    z-index: 6;
+    padding: 0;
+    color: #7c8692;
+}
+.grid3.g2 ul.actual li {
+    padding: 0;
+}
+.grid3.g2 ul.actual li.atm {
+    width: 100%;
+    font-size: 10px;
+    text-align: center;
+    width: 100%;
+    line-height: 20px;
+}
+.grid3.g2 ul.actual li.hero {
+    width: 100%;
+    font-weight: 300;
+    font-size: 5em;
+    color: #2e444b;
+    line-height: 60px;
+    height: 60px;
+    letter-spacing: -3px;
+}
+.grid3.g2 ul.actual li.hero span.up {
+    font-size: 0.2em;
+    vertical-align: top;
+}
+.grid3.g2 ul.actual li.flag {
+    width: 100%;
+    font-size: 4em;
+    color: #326CB2;
+    line-height: 45px;
+}
+.grid3.g2 ul.actual li.countryName {
+    width: 100%;
+    ;
+    color: #7c8692;
+    font-weight: 300;
+    font-size: 0.8em;
+}
+.grid3.g2 .legend {
+    position: absolute;
+    top: 250px;
+    width: 100%;
+    height: 20px;
+    font-size: 10px;
+    line-height: 20px;
+    color: #2e444b;
+    text-align: center;
+}
+.square .legend span {
+    font-size: 8px;
+}
+.g2 .metrics {
+    height: 270px;
+}
+.grid3 .indicators {
+    position: absolute;
+    bottom: 0;
+    height: 41px;
+    width: 100%;
+    background: none;
+    border-top: solid 1px #dbe1e6;
+}
+.grid3 .indicators ul {
+    list-style: none;
+    height: 40px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.grid3 .indicators ul li {
+    color: #2e444b;
+    float: left;
+    width: 21%;
+    height: 40px;
+    font-size: 24px;
+    line-height: 40px;
+    list-style: none;
+    border-right: solid 1px #dbe1e6;
+    padding-left: 2%;
+}
+.grid3 .indicators ul li:last-child {
+    width: 37%;
+    border-right: none;
+    font-size: 21px;
+}
+.grid3 .indicators ul li span {
+    float: left;
+    text-align: center;
+    width: 50%;
+    height: 40px;
+    line-height: 40px;
+}
+.grid3 .indicators ul li:last-child span {
+    width: 25%;
+}
+.grid3 .indicators ul li:last-child span.difference {
+    font-size: 0.8em;
+}
+.grid3 .indicators ul li span.icon-up_arrow, .indicators>ul li span.icon-down_arrow {
+    font-size: 0.4em;
+    line-height: 40px;
+    height: 40px;
+}
+.nia {
+    height: 108px;
+    width: 100%;
+    font-size: 3.3em;
+    border-top: solid 1px #dbe1e6;
+    /*line-height: 110px;*/
+    color: #7c8692;
+    /*margin-bottom: 4px;*/
+}
+.nia .nia-icon {
+    float: left;
+    width: 50%;
+    height: 104px;
+    text-align: center;
+    color: #1c3050;
+}
+
+.nia .nia-icon [class^="icon-"], [class*=" icon-"] {
+    line-height: 110px;
+}
+.nia div.niaGauge {
+    float: left;
+    width: 50%;
+    height: 104px;
+    text-align: center;
+    position: relative;
+}
+.nia div.hero {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-weight: 300;
+    font-size: 0.4em;
+    color: #2e444b;
+    line-height: 104px;
+    letter-spacing: -1px;
+}
+.nia div.hero span.up {
+    font-size: 0.2em;
+    vertical-align: super;
+}
+.grid3 .indicators ul li:last-child {
+    width: 37%;
+    border-right: none;
+    font-size: 21px;
+}
+.grid3 .indicators ul li:last-child span {
+    
+}
+.grid3 .indicators ul li span.icon-up_arrow, .indicators>ul li span.icon-down_arrow {
+    font-size: 0.4em;
+    line-height: 40px;
+    height: 40px;
+}
+.grid3 .indicators ul li:last-child span.difference {
+    font-size: 0.8em;
+}
+.grid3 .indicators ul li:last-child span {
+    width: 25%;
+}
+
+.ui-sortable-helper {
+    list-style: none;
+}
+
+@media screen and (max-width: 1025px) {
+    .container > header {
+        margin: 0 auto;
+        padding: 120px 50px;
+        font-size: 70%;
+        text-align: right;
+   }
+}
+@media screen and (max-width: 900px) {
+    .group {
+        width: 640px;
+        margin: 100px auto;
+   }
+   .square {
+       width: 295px;
+  }
+}
+@media screen and (max-width: 740px) {
+    li.shade-icon {
+        font-size: 0.9em;
+        padding-top: 6px;
+   }
+   .group {
+       width: 300px;
+       margin: 100px auto;
+  }
+ .square {
+     width: 300px;
+}
+
+}

@@ -1,0 +1,50 @@
+/* Copyright 2014 Clavis Insight Ltd. */
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+	&.login {
+		background: #1c3050;
+    	font-family: 'Roboto', Arial, sans-serif;
+	}
+    &.global {
+    	background: #1c3050;
+    	font-family: 'Roboto', Arial, sans-serif;
+    	padding: 0;
+    }
+}
+
+.login .global-logo a,
+.global-logo a {
+    background: url("/images/pso2.svg") no-repeat center center;
+    height: 25px;
+    width: 195px;
+    background-size: contain;
+    margin-top: 0;
+}
+
+
+@import "unilever_login";
+
+@import "unilever_fonts";
+
+.global {
+	@import "unilever_common";
+    .country_page {
+        @import "unilever_country";
+    }
+    .index_page {
+        @import "unilever_index";
+    }
+}

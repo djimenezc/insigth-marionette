@@ -18,7 +18,7 @@ function( Backbone, Communicator, SimplePanelViewTmpl  ) {
 			content: '#simple-panel-1'
 		},
 
-		className: 'width-100-percent panels-lateral-padding',
+		className: 'width-100-percent',
 
     	template: SimplePanelViewTmpl,
 

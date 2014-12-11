@@ -21,7 +21,7 @@ define([
 
 				var layout = new AppLayout({
 					attributes: {},
-					className: 'app-layout'
+					className: 'app-global-layout'
 				});
 
 				Communicator.command.execute('module:replaceMainLayout', layout);
