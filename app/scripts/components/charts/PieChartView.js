@@ -16,11 +16,7 @@ define([
 				this.opts.chartType = 'pie';
 				this.opts.title = '89%';
 				this.opts.subtitle = 'of 5485 products are available';
-			},
-
-			getSeriesData: function () {
-
-				return [{
+				this.opts.series = [{
 					'name': 'Products',
 					'data': [{
 						'y': 4867,
@@ -39,11 +35,7 @@ define([
 					'innerSize': '70%',
 					'dataLabels': {'enabled': false, 'style': {'fontSize': '12px'}}
 				}];
-			},
-
-			getCategories: function () {
-
-				return ['TRESemme', 'Klondike', 'Ben & Jerry\'s', 'Good Humor', 'Popsicle', 'TIGI', 'Best Foods', 'Just For Me', 'Hellmann\'s', 'Breyers'];
 			}
+
 		});
 	});

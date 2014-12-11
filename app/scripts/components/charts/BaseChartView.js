@@ -15,6 +15,8 @@ define([
 				this.opts.chartType = this.opts.chartType ? this.opts.chartType : 'column';
 				this.opts.title = this.opts.title ? this.opts.title : '';
 				this.opts.subtitle = this.opts.subtitle ? this.opts.subtitle : '';
+				this.opts.categories = this.opts.categories ? this.opts.categories : [];
+				this.opts.series = this.opts.series ? this.opts.series : '';
 			},
 
 			template: Template,
@@ -31,6 +33,16 @@ define([
 
 			getSubtitle : function() {
 				return this.opts.subtitle;
+			},
+
+			getCategories: function () {
+
+				return this.opts.categories;
+			},
+
+			getSeriesData: function () {
+
+				return this.opts.series;
 			},
 
 			/**
@@ -114,11 +126,6 @@ define([
 					//tooltip: highchartsTooltipPopover.createTooltipConfig(this.tooltipFormatter, true),
 					series: series
 				};
-			},
-
-			getSeriesData: function () {
-
-				return [];
 			},
 
 			getMin : function() {

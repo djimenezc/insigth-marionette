@@ -12,11 +12,8 @@ define([
 				console.log('initialize a Availability by brand chart View');
 
 				BaseChartView.prototype.initialize.apply(this, arguments);
-			},
 
-			getSeriesData: function () {
-
-				return [{
+				this.opts.series = [{
 					'name': 'In Stock',
 					'color': '#50b432',
 					'data': [8, 16, 21, 4, 21, 54, 26, 53, 63, 47]
@@ -33,11 +30,9 @@ define([
 					'color': '#DA3610',
 					'data': [-10, -10, -11, -2, -4, null, null, -1, -4, -9]
 				}];
-			},
 
-			getCategories : function() {
-
-				return ['TRESemme', 'Klondike', 'Ben & Jerry\'s', 'Good Humor', 'Popsicle', 'TIGI', 'Best Foods', 'Just For Me', 'Hellmann\'s', 'Breyers'];
+				this.opts.categories = ['TRESemme', 'Klondike', 'Ben & Jerry\'s', 'Good Humor', 'Popsicle', 'TIGI', 'Best Foods', 'Just For Me', 'Hellmann\'s', 'Breyers'];
 			}
+
 		});
 	});
