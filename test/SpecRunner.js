@@ -7,11 +7,11 @@ require.config({
 		'backbone.marionette',
 		'backbone.routefilter',
 		'marionette.region.extension',
-		'template/helpers/recursivepartial',
-		'template/helpers/templateHelpers',
-		'template/helpers/i18n',
-		'template/helpers/parseJSON',
-		'template/helpers/times'
+		'templates/helpers/recursivepartial',
+		'templates/helpers/templateHelpers',
+		'templates/helpers/i18n',
+		'templates/helpers/parseJSON',
+		'templates/helpers/times'
 	],
 
 	shim: {
