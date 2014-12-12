@@ -33,7 +33,7 @@ define([
             /**
              * We need that the prefix attribute will be available in the template
              * http://stackoverflow.com/questions/11325038/marionette-compositeview-how-to-pass-a-parameter-to-the-template-without-using-a
-             * @returns {{settingsPermission: string,homePermission:string}}
+             * @returns {{}}
              */
             serializeData: function () {
                 console.log('serialize Data');
