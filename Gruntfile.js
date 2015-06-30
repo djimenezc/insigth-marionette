@@ -47,7 +47,7 @@ module.exports = function (grunt) {
 					'test/spec/{,**/}*.js'
 
 				],
-				tasks: ['jshint', 'exec'],
+				tasks: ['jshint'],
 				options: {
 					livereload: 1337
 				}
