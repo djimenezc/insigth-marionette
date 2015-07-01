@@ -21,6 +21,7 @@ function solution(A) {
 }
 
 var sol1 = solution(A);
+var cond1 = (sol1 === 5);
 
-console.log('solution ' + sol1 + ' sss ' + (sol1 === 5));
-
+console.log('solution ' + sol1 + ' sss ' + cond1);
+console.assert(cond1);
