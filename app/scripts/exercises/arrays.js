@@ -24,3 +24,35 @@ window.myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
 //console.log('solution ' + sol2 + ' sss ' + (sol2 === 1));
 //console.log('solution ' + sol3 + ' sss ' + (sol3 === 11));
 //console.log('solution ' + sol4 + ' sss ' + (sol4 === 5));
+
+
+
+//The LIFO stack
+//
+//It is always difficult to know which stack is the most basic but the LIFO or Last In First Out stack is perhaps the most commonly used. A simple array object already has the two basic methods needed to create a LIFO stack push and pop. The push method will add any object to the top of the stack and the pop method will remove it. To treat an array as a LIFO stack you simply create an instance and use push and pop.
+//	For example:
+//	var stack=new Array();
+//stack.push("A);
+//stack.push("B");
+//stack.push("C"
+//alert(stack.pop());
+//alert(stack.pop());
+//alert(stack.pop());
+
+
+
+//var stack = [];
+//stack.push(2);       // stack is now [2]
+//stack.push(5);       // stack is now [2, 5]
+//var i = stack.pop(); // stack is now [2]
+//alert(i);            // displays 5
+//
+//var queue = [];
+//queue.push(2);         // queue is now [2]
+//queue.push(5);         // queue is now [2, 5]
+//var i = queue.shift(); // queue is now [5]
+//alert(i);              // displays 2
+
+
+//Array empty
+//arrayName.length > 0
