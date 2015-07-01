@@ -40,3 +40,10 @@ window.buildArray = function (min, max) {
 	return result;
 };
 
+window.sortAscending = function (a, b) {
+	return a - b;
+};
+
+window.sortDescending = function (a, b) {
+	return b - a;
+};
