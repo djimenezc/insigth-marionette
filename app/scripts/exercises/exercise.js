@@ -4,27 +4,23 @@
 'use strict';
 
 
-var N = 10;
+var A = [];
 
 
-function solution(N) {
+function solution(A) {
 
 
-	//var result = 0;
-	var minPer = Number.MAX_VALUE;
+	var result = 0,
+		N = A.length;
 
-	for (var i = 1; i * i <= N; i++) {
+	for (var i = 0; i < N; i++) {
 
-		if (N % i === 0) {
-			minPer = Math.min(minPer, 2 * (N / i + i));
-		}
 	}
 
-	return minPer;
+	return result;
 }
 
-
-var sol1 = solution(N);
+var sol1 = solution(A);
 
 console.log('solution ' + sol1 + ' sss ' + (sol1 === 5));
 
